@@ -10,4 +10,9 @@ Resources:
 - https://github.com/maartenbreddels/ipywebrtc
 
 # Next steps:
+- Try to push from paperspace to github
 - Take single images from the stream and classify them.
+
+# Done so far:
+- setup repo on github
+- cloned on paperspace
