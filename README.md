@@ -3,7 +3,7 @@
 The overall goal of this repository is to experiment with user interaction by gaze detection. For example looking up/down/right/left to replace arrow key input.
 
 # Current step
-- Load trained fastai model
+- Make webcam widget work with voila
 
 Resources:
 - https://towardsdatascience.com/video-streaming-in-the-jupyter-notebook-635bc5809e85
@@ -11,6 +11,7 @@ Resources:
 
 # Next steps:
 - Classify myself lookin in directions
+    - Load trained fastai model
 
 # Done so far:
 - Take single images from the stream
