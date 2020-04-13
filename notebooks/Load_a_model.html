@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>simple_widgets</title>
+<title>Load_a_model</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13074,89 +13074,29 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="IPyWidgets">IPyWidgets<a class="anchor-link" href="#IPyWidgets">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Playing around with how IPyWidgets work. Documentation at: <a href="https://ipywidgets.readthedocs.io/en/latest/">https://ipywidgets.readthedocs.io/en/latest/</a></p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">fastai2.vision.all</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Simple-Widget-Introduction">Simple Widget Introduction<a class="anchor-link" href="#Simple-Widget-Introduction">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://ipywidgets.readthedocs.io/en/latest/examples/Widget%20Basics.html">https://ipywidgets.readthedocs.io/en/latest/examples/Widget%20Basics.html</a></p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
-<span class="n">w</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">()</span>
-<span class="n">display</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inf</span> <span class="o">=</span> <span class="n">load_learner</span><span class="p">(</span><span class="s1">&#39;/storage/multigaze_resnet18_10_epochs.pkl&#39;</span><span class="p">)</span>
+<span class="n">inf</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">inf</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-
- 
- 
-<div id="53ffe510-315a-47c9-966b-19ec4d3320c8"></div>
-<div class="output_subarea output_widget_view ">
-<script type="text/javascript">
-var element = $('#53ffe510-315a-47c9-966b-19ec4d3320c8');
-</script>
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_minor": 0, "version_major": 2, "model_id": ""}
-</script>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -13166,7 +13106,8 @@ var element = $('#53ffe510-315a-47c9-966b-19ec4d3320c8');
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">w</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">img_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;/storage/selftest&#39;</span><span class="p">)</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">PILImage</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">img_dir</span><span class="o">/</span><span class="s1">&#39;left.jpg&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13174,27 +13115,12 @@ var element = $('#53ffe510-315a-47c9-966b-19ec4d3320c8');
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Button-with-callback">Button with callback<a class="anchor-link" href="#Button-with-callback">&#182;</a></h2>
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">btn</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Click Me!&quot;</span><span class="p">)</span>
-<span class="c1">#output = widgets.Output()</span>
-
-<span class="n">display</span><span class="p">(</span><span class="n">btn</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Testi&quot;</span><span class="p">)</span>
-    
-<span class="n">btn</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">img_dir</span><span class="o">/</span><span class="s1">&#39;left.jpg&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13211,18 +13137,8 @@ var element = $('#53ffe510-315a-47c9-966b-19ec4d3320c8');
 
 
 
+<div class="output_html rendered_html output_subarea ">
 
-
- 
- 
-<div id="ac2351bc-9d0e-4610-b9cc-d04f249c200a"></div>
-<div class="output_subarea output_widget_view ">
-<script type="text/javascript">
-var element = $('#ac2351bc-9d0e-4610-b9cc-d04f249c200a');
-</script>
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_minor": 0, "version_major": 2, "model_id": "d2abcd5e6f4c43bf9c8f0bdc3702c299"}
-</script>
 </div>
 
 </div>
@@ -13232,193 +13148,175 @@ var element = $('#ac2351bc-9d0e-4610-b9cc-d04f249c200a');
     <div class="prompt"></div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Testi
-</pre>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">OSError</span>                                   Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/conda/envs/fastai/lib/python3.7/site-packages/fastai2/learner.py</span> in <span class="ansi-cyan-fg">_do_epoch_validate</span><span class="ansi-blue-fg">(self, ds_idx, dl)</span>
+<span class="ansi-green-intense-fg ansi-bold">    173</span>             self<span class="ansi-blue-fg">.</span>dl <span class="ansi-blue-fg">=</span> dl<span class="ansi-blue-fg">;</span>                                    self<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;begin_validate&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 174</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">with</span> torch<span class="ansi-blue-fg">.</span>no_grad<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span> self<span class="ansi-blue-fg">.</span>all_batches<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    175</span>         <span class="ansi-green-fg">except</span> CancelValidException<span class="ansi-blue-fg">:</span>                         self<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;after_cancel_validate&#39;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/conda/envs/fastai/lib/python3.7/site-packages/fastai2/learner.py</span> in <span class="ansi-cyan-fg">all_batches</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    141</span>         self<span class="ansi-blue-fg">.</span>n_iter <span class="ansi-blue-fg">=</span> len<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>dl<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 142</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">for</span> o <span class="ansi-green-fg">in</span> enumerate<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>dl<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span> self<span class="ansi-blue-fg">.</span>one_batch<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>o<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    143</span> 
+
+<span class="ansi-green-fg">/opt/conda/envs/fastai/lib/python3.7/site-packages/fastai2/data/load.py</span> in <span class="ansi-cyan-fg">__iter__</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">     96</span>         self<span class="ansi-blue-fg">.</span>before_iter<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">---&gt; 97</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">for</span> b <span class="ansi-green-fg">in</span> _loaders<span class="ansi-blue-fg">[</span>self<span class="ansi-blue-fg">.</span>fake_l<span class="ansi-blue-fg">.</span>num_workers<span class="ansi-blue-fg">==</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>fake_l<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     98</span>             <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>device <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span> b <span class="ansi-blue-fg">=</span> to_device<span class="ansi-blue-fg">(</span>b<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>device<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/conda/envs/fastai/lib/python3.7/site-packages/torch/utils/data/dataloader.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, loader)</span>
+<span class="ansi-green-intense-fg ansi-bold">    718</span>             <span class="ansi-red-fg">#     AssertionError: can only join a started process.</span>
+<span class="ansi-green-fg">--&gt; 719</span><span class="ansi-red-fg">             </span>w<span class="ansi-blue-fg">.</span>start<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    720</span>             self<span class="ansi-blue-fg">.</span>_index_queues<span class="ansi-blue-fg">.</span>append<span class="ansi-blue-fg">(</span>index_queue<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/conda/envs/fastai/lib/python3.7/multiprocessing/process.py</span> in <span class="ansi-cyan-fg">start</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    111</span>         _cleanup<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 112</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>_popen <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_Popen<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    113</span>         self<span class="ansi-blue-fg">.</span>_sentinel <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_popen<span class="ansi-blue-fg">.</span>sentinel
+
+<span class="ansi-green-fg">/opt/conda/envs/fastai/lib/python3.7/multiprocessing/context.py</span> in <span class="ansi-cyan-fg">_Popen</span><span class="ansi-blue-fg">(process_obj)</span>
+<span class="ansi-green-intense-fg ansi-bold">    222</span>     <span class="ansi-green-fg">def</span> _Popen<span class="ansi-blue-fg">(</span>process_obj<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 223</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> _default_context<span class="ansi-blue-fg">.</span>get_context<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>Process<span class="ansi-blue-fg">.</span>_Popen<span class="ansi-blue-fg">(</span>process_obj<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    224</span> 
+
+<span class="ansi-green-fg">/opt/conda/envs/fastai/lib/python3.7/multiprocessing/context.py</span> in <span class="ansi-cyan-fg">_Popen</span><span class="ansi-blue-fg">(process_obj)</span>
+<span class="ansi-green-intense-fg ansi-bold">    276</span>             <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>popen_fork <span class="ansi-green-fg">import</span> Popen
+<span class="ansi-green-fg">--&gt; 277</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> Popen<span class="ansi-blue-fg">(</span>process_obj<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    278</span> 
+
+<span class="ansi-green-fg">/opt/conda/envs/fastai/lib/python3.7/multiprocessing/popen_fork.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, process_obj)</span>
+<span class="ansi-green-intense-fg ansi-bold">     19</span>         self<span class="ansi-blue-fg">.</span>finalizer <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">None</span>
+<span class="ansi-green-fg">---&gt; 20</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>_launch<span class="ansi-blue-fg">(</span>process_obj<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     21</span> 
+
+<span class="ansi-green-fg">/opt/conda/envs/fastai/lib/python3.7/multiprocessing/popen_fork.py</span> in <span class="ansi-cyan-fg">_launch</span><span class="ansi-blue-fg">(self, process_obj)</span>
+<span class="ansi-green-intense-fg ansi-bold">     69</span>         parent_r<span class="ansi-blue-fg">,</span> child_w <span class="ansi-blue-fg">=</span> os<span class="ansi-blue-fg">.</span>pipe<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">---&gt; 70</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>pid <span class="ansi-blue-fg">=</span> os<span class="ansi-blue-fg">.</span>fork<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     71</span>         <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>pid <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">OSError</span>: [Errno 12] Cannot allocate memory
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">IndexError</span>                                Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-6-3f7b43396b45&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>inf<span class="ansi-blue-fg">.</span>predict<span class="ansi-blue-fg">(</span>img_dir<span class="ansi-blue-fg">/</span><span class="ansi-blue-fg">&#39;left.jpg&#39;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/conda/envs/fastai/lib/python3.7/site-packages/fastai2/learner.py</span> in <span class="ansi-cyan-fg">predict</span><span class="ansi-blue-fg">(self, item, rm_type_tfms, with_input)</span>
+<span class="ansi-green-intense-fg ansi-bold">    228</span>     <span class="ansi-green-fg">def</span> predict<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> item<span class="ansi-blue-fg">,</span> rm_type_tfms<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> with_input<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    229</span>         dl <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>dls<span class="ansi-blue-fg">.</span>test_dl<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span>item<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> rm_type_tfms<span class="ansi-blue-fg">=</span>rm_type_tfms<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 230</span><span class="ansi-red-fg">         </span>inp<span class="ansi-blue-fg">,</span>preds<span class="ansi-blue-fg">,</span>_<span class="ansi-blue-fg">,</span>dec_preds <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>get_preds<span class="ansi-blue-fg">(</span>dl<span class="ansi-blue-fg">=</span>dl<span class="ansi-blue-fg">,</span> with_input<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">,</span> with_decoded<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    231</span>         dec <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>dls<span class="ansi-blue-fg">.</span>decode_batch<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>tuplify<span class="ansi-blue-fg">(</span>inp<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">*</span>tuplify<span class="ansi-blue-fg">(</span>dec_preds<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">    232</span>         i <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>dls<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;n_inp&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/conda/envs/fastai/lib/python3.7/site-packages/fastai2/learner.py</span> in <span class="ansi-cyan-fg">get_preds</span><span class="ansi-blue-fg">(self, ds_idx, dl, with_input, with_decoded, with_loss, act, inner, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    216</span>             <span class="ansi-green-fg">for</span> mgr <span class="ansi-green-fg">in</span> ctx_mgrs<span class="ansi-blue-fg">:</span> stack<span class="ansi-blue-fg">.</span>enter_context<span class="ansi-blue-fg">(</span>mgr<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    217</span>             self<span class="ansi-blue-fg">(</span>event<span class="ansi-blue-fg">.</span>begin_epoch <span class="ansi-green-fg">if</span> inner <span class="ansi-green-fg">else</span> _before_epoch<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 218</span><span class="ansi-red-fg">             </span>self<span class="ansi-blue-fg">.</span>_do_epoch_validate<span class="ansi-blue-fg">(</span>dl<span class="ansi-blue-fg">=</span>dl<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    219</span>             self<span class="ansi-blue-fg">(</span>event<span class="ansi-blue-fg">.</span>after_epoch <span class="ansi-green-fg">if</span> inner <span class="ansi-green-fg">else</span> _after_epoch<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    220</span>             <span class="ansi-green-fg">if</span> act <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span> act <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>loss_func<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;activation&#39;</span><span class="ansi-blue-fg">,</span> noop<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/conda/envs/fastai/lib/python3.7/site-packages/fastai2/learner.py</span> in <span class="ansi-cyan-fg">_do_epoch_validate</span><span class="ansi-blue-fg">(self, ds_idx, dl)</span>
+<span class="ansi-green-intense-fg ansi-bold">    175</span>         <span class="ansi-green-fg">except</span> CancelValidException<span class="ansi-blue-fg">:</span>                         self<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;after_cancel_validate&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    176</span>         <span class="ansi-green-fg">finally</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 177</span><span class="ansi-red-fg">             </span>dl<span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">*</span>_ <span class="ansi-blue-fg">=</span> change_attrs<span class="ansi-blue-fg">(</span>dl<span class="ansi-blue-fg">,</span> names<span class="ansi-blue-fg">,</span> old<span class="ansi-blue-fg">,</span> has<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">;</span>       self<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;after_validate&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    178</span> 
+<span class="ansi-green-intense-fg ansi-bold">    179</span>     <span class="ansi-green-fg">def</span> fit<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> n_epoch<span class="ansi-blue-fg">,</span> lr<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> wd<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> cbs<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> reset_opt<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/conda/envs/fastai/lib/python3.7/site-packages/fastai2/learner.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, event_name)</span>
+<span class="ansi-green-intense-fg ansi-bold">    121</span>     <span class="ansi-green-fg">def</span> ordered_cbs<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> cb_func<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span> <span class="ansi-green-fg">return</span> <span class="ansi-blue-fg">[</span>cb <span class="ansi-green-fg">for</span> cb <span class="ansi-green-fg">in</span> sort_by_run<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>cbs<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">if</span> hasattr<span class="ansi-blue-fg">(</span>cb<span class="ansi-blue-fg">,</span> cb_func<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">    122</span> 
+<span class="ansi-green-fg">--&gt; 123</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> event_name<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span> L<span class="ansi-blue-fg">(</span>event_name<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>map<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>_call_one<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    124</span>     <span class="ansi-green-fg">def</span> _call_one<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> event_name<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    125</span>         <span class="ansi-green-fg">assert</span> hasattr<span class="ansi-blue-fg">(</span>event<span class="ansi-blue-fg">,</span> event_name<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/conda/envs/fastai/lib/python3.7/site-packages/fastcore/foundation.py</span> in <span class="ansi-cyan-fg">map</span><span class="ansi-blue-fg">(self, f, *args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    360</span>              <span class="ansi-green-fg">else</span> f<span class="ansi-blue-fg">.</span>format <span class="ansi-green-fg">if</span> isinstance<span class="ansi-blue-fg">(</span>f<span class="ansi-blue-fg">,</span>str<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    361</span>              else f.__getitem__)
+<span class="ansi-green-fg">--&gt; 362</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_new<span class="ansi-blue-fg">(</span>map<span class="ansi-blue-fg">(</span>g<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    363</span> 
+<span class="ansi-green-intense-fg ansi-bold">    364</span>     <span class="ansi-green-fg">def</span> filter<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> f<span class="ansi-blue-fg">,</span> negate<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/conda/envs/fastai/lib/python3.7/site-packages/fastcore/foundation.py</span> in <span class="ansi-cyan-fg">_new</span><span class="ansi-blue-fg">(self, items, *args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    313</span>     <span class="ansi-blue-fg">@</span>property
+<span class="ansi-green-intense-fg ansi-bold">    314</span>     <span class="ansi-green-fg">def</span> _xtra<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span> <span class="ansi-green-fg">return</span> <span class="ansi-green-fg">None</span>
+<span class="ansi-green-fg">--&gt; 315</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">def</span> _new<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> items<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span> <span class="ansi-green-fg">return</span> type<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">(</span>items<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> use_list<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    316</span>     <span class="ansi-green-fg">def</span> __getitem__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> idx<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span> <span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_get<span class="ansi-blue-fg">(</span>idx<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">if</span> is_indexer<span class="ansi-blue-fg">(</span>idx<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">else</span> L<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>_get<span class="ansi-blue-fg">(</span>idx<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> use_list<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    317</span>     <span class="ansi-green-fg">def</span> copy<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span> <span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_new<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>items<span class="ansi-blue-fg">.</span>copy<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/conda/envs/fastai/lib/python3.7/site-packages/fastcore/foundation.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(cls, x, *args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">     39</span>             <span class="ansi-green-fg">return</span> x
+<span class="ansi-green-intense-fg ansi-bold">     40</span> 
+<span class="ansi-green-fg">---&gt; 41</span><span class="ansi-red-fg">         </span>res <span class="ansi-blue-fg">=</span> super<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__call__<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span><span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">+</span> args<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     42</span>         res<span class="ansi-blue-fg">.</span>_newchk <span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">0</span>
+<span class="ansi-green-intense-fg ansi-bold">     43</span>         <span class="ansi-green-fg">return</span> res
+
+<span class="ansi-green-fg">/opt/conda/envs/fastai/lib/python3.7/site-packages/fastcore/foundation.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, items, use_list, match, *rest)</span>
+<span class="ansi-green-intense-fg ansi-bold">    304</span>         <span class="ansi-green-fg">if</span> items <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span> items <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">    305</span>         <span class="ansi-green-fg">if</span> <span class="ansi-blue-fg">(</span>use_list <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">or</span> <span class="ansi-green-fg">not</span> _is_array<span class="ansi-blue-fg">(</span>items<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 306</span><span class="ansi-red-fg">             </span>items <span class="ansi-blue-fg">=</span> list<span class="ansi-blue-fg">(</span>items<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">if</span> use_list <span class="ansi-green-fg">else</span> _listify<span class="ansi-blue-fg">(</span>items<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    307</span>         <span class="ansi-green-fg">if</span> match <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    308</span>             <span class="ansi-green-fg">if</span> is_coll<span class="ansi-blue-fg">(</span>match<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span> match <span class="ansi-blue-fg">=</span> len<span class="ansi-blue-fg">(</span>match<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/conda/envs/fastai/lib/python3.7/site-packages/fastcore/foundation.py</span> in <span class="ansi-cyan-fg">_listify</span><span class="ansi-blue-fg">(o)</span>
+<span class="ansi-green-intense-fg ansi-bold">    240</span>     <span class="ansi-green-fg">if</span> isinstance<span class="ansi-blue-fg">(</span>o<span class="ansi-blue-fg">,</span> list<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span> <span class="ansi-green-fg">return</span> o
+<span class="ansi-green-intense-fg ansi-bold">    241</span>     <span class="ansi-green-fg">if</span> isinstance<span class="ansi-blue-fg">(</span>o<span class="ansi-blue-fg">,</span> str<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">or</span> _is_array<span class="ansi-blue-fg">(</span>o<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span> <span class="ansi-green-fg">return</span> <span class="ansi-blue-fg">[</span>o<span class="ansi-blue-fg">]</span>
+<span class="ansi-green-fg">--&gt; 242</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">if</span> is_iter<span class="ansi-blue-fg">(</span>o<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span> <span class="ansi-green-fg">return</span> list<span class="ansi-blue-fg">(</span>o<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    243</span>     <span class="ansi-green-fg">return</span> <span class="ansi-blue-fg">[</span>o<span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">    244</span> 
+
+<span class="ansi-green-fg">/opt/conda/envs/fastai/lib/python3.7/site-packages/fastcore/foundation.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, *args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    206</span>             <span class="ansi-green-fg">if</span> isinstance<span class="ansi-blue-fg">(</span>v<span class="ansi-blue-fg">,</span>_Arg<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span> kwargs<span class="ansi-blue-fg">[</span>k<span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> args<span class="ansi-blue-fg">.</span>pop<span class="ansi-blue-fg">(</span>v<span class="ansi-blue-fg">.</span>i<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    207</span>         fargs <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span>args<span class="ansi-blue-fg">[</span>x<span class="ansi-blue-fg">.</span>i<span class="ansi-blue-fg">]</span> <span class="ansi-green-fg">if</span> isinstance<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">,</span> _Arg<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">else</span> x <span class="ansi-green-fg">for</span> x <span class="ansi-green-fg">in</span> self<span class="ansi-blue-fg">.</span>pargs<span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">+</span> args<span class="ansi-blue-fg">[</span>self<span class="ansi-blue-fg">.</span>maxi<span class="ansi-blue-fg">+</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-fg">--&gt; 208</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>fn<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>fargs<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    209</span> 
+<span class="ansi-green-intense-fg ansi-bold">    210</span> <span class="ansi-red-fg"># Cell</span>
+
+<span class="ansi-green-fg">/opt/conda/envs/fastai/lib/python3.7/site-packages/fastai2/learner.py</span> in <span class="ansi-cyan-fg">_call_one</span><span class="ansi-blue-fg">(self, event_name)</span>
+<span class="ansi-green-intense-fg ansi-bold">    124</span>     <span class="ansi-green-fg">def</span> _call_one<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> event_name<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    125</span>         <span class="ansi-green-fg">assert</span> hasattr<span class="ansi-blue-fg">(</span>event<span class="ansi-blue-fg">,</span> event_name<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 126</span><span class="ansi-red-fg">         </span><span class="ansi-blue-fg">[</span>cb<span class="ansi-blue-fg">(</span>event_name<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">for</span> cb <span class="ansi-green-fg">in</span> sort_by_run<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>cbs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">    127</span> 
+<span class="ansi-green-intense-fg ansi-bold">    128</span>     <span class="ansi-green-fg">def</span> _bn_bias_state<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> with_bias<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span> <span class="ansi-green-fg">return</span> bn_bias_params<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>model<span class="ansi-blue-fg">,</span> with_bias<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>map<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>opt<span class="ansi-blue-fg">.</span>state<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/conda/envs/fastai/lib/python3.7/site-packages/fastai2/learner.py</span> in <span class="ansi-cyan-fg">&lt;listcomp&gt;</span><span class="ansi-blue-fg">(.0)</span>
+<span class="ansi-green-intense-fg ansi-bold">    124</span>     <span class="ansi-green-fg">def</span> _call_one<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> event_name<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    125</span>         <span class="ansi-green-fg">assert</span> hasattr<span class="ansi-blue-fg">(</span>event<span class="ansi-blue-fg">,</span> event_name<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 126</span><span class="ansi-red-fg">         </span><span class="ansi-blue-fg">[</span>cb<span class="ansi-blue-fg">(</span>event_name<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">for</span> cb <span class="ansi-green-fg">in</span> sort_by_run<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>cbs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">    127</span> 
+<span class="ansi-green-intense-fg ansi-bold">    128</span>     <span class="ansi-green-fg">def</span> _bn_bias_state<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> with_bias<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span> <span class="ansi-green-fg">return</span> bn_bias_params<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>model<span class="ansi-blue-fg">,</span> with_bias<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>map<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>opt<span class="ansi-blue-fg">.</span>state<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/conda/envs/fastai/lib/python3.7/site-packages/fastai2/callback/core.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, event_name)</span>
+<span class="ansi-green-intense-fg ansi-bold">     21</span>         _run = (event_name not in _inner_loop or (self.run_train and getattr(self, &#39;training&#39;, True)) or
+<span class="ansi-green-intense-fg ansi-bold">     22</span>                (self.run_valid and not getattr(self, &#39;training&#39;, False)))
+<span class="ansi-green-fg">---&gt; 23</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>run <span class="ansi-green-fg">and</span> _run<span class="ansi-blue-fg">:</span> getattr<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> event_name<span class="ansi-blue-fg">,</span> noop<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     24</span>         <span class="ansi-green-fg">if</span> event_name<span class="ansi-blue-fg">==</span><span class="ansi-blue-fg">&#39;after_fit&#39;</span><span class="ansi-blue-fg">:</span> self<span class="ansi-blue-fg">.</span>run<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span> <span class="ansi-red-fg">#Reset self.run to True at each end of fit</span>
+<span class="ansi-green-intense-fg ansi-bold">     25</span> 
+
+<span class="ansi-green-fg">/opt/conda/envs/fastai/lib/python3.7/site-packages/fastai2/callback/core.py</span> in <span class="ansi-cyan-fg">after_validate</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">     92</span>     <span class="ansi-green-fg">def</span> after_validate<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     93</span>         <span class="ansi-blue-fg">&#34;Concatenate all recorded tensors&#34;</span>
+<span class="ansi-green-fg">---&gt; 94</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>with_input<span class="ansi-blue-fg">:</span>     self<span class="ansi-blue-fg">.</span>inputs  <span class="ansi-blue-fg">=</span> detuplify<span class="ansi-blue-fg">(</span>to_concat<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>inputs<span class="ansi-blue-fg">,</span> dim<span class="ansi-blue-fg">=</span>self<span class="ansi-blue-fg">.</span>concat_dim<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     95</span>         <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> self<span class="ansi-blue-fg">.</span>save_preds<span class="ansi-blue-fg">:</span> self<span class="ansi-blue-fg">.</span>preds   <span class="ansi-blue-fg">=</span> detuplify<span class="ansi-blue-fg">(</span>to_concat<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>preds<span class="ansi-blue-fg">,</span> dim<span class="ansi-blue-fg">=</span>self<span class="ansi-blue-fg">.</span>concat_dim<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     96</span>         <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> self<span class="ansi-blue-fg">.</span>save_targs<span class="ansi-blue-fg">:</span> self<span class="ansi-blue-fg">.</span>targets <span class="ansi-blue-fg">=</span> detuplify<span class="ansi-blue-fg">(</span>to_concat<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>targets<span class="ansi-blue-fg">,</span> dim<span class="ansi-blue-fg">=</span>self<span class="ansi-blue-fg">.</span>concat_dim<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/conda/envs/fastai/lib/python3.7/site-packages/fastai2/torch_core.py</span> in <span class="ansi-cyan-fg">to_concat</span><span class="ansi-blue-fg">(xs, dim)</span>
+<span class="ansi-green-intense-fg ansi-bold">    211</span> <span class="ansi-green-fg">def</span> to_concat<span class="ansi-blue-fg">(</span>xs<span class="ansi-blue-fg">,</span> dim<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    212</span>     <span class="ansi-blue-fg">&#34;Concat the element in `xs` (recursively if they are tuples/lists of tensors)&#34;</span>
+<span class="ansi-green-fg">--&gt; 213</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">if</span> is_listy<span class="ansi-blue-fg">(</span>xs<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span> <span class="ansi-green-fg">return</span> type<span class="ansi-blue-fg">(</span>xs<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span>to_concat<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span>x<span class="ansi-blue-fg">[</span>i<span class="ansi-blue-fg">]</span> <span class="ansi-green-fg">for</span> x <span class="ansi-green-fg">in</span> xs<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> dim<span class="ansi-blue-fg">=</span>dim<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">for</span> i <span class="ansi-green-fg">in</span> range_of<span class="ansi-blue-fg">(</span>xs<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    214</span>     <span class="ansi-green-fg">if</span> isinstance<span class="ansi-blue-fg">(</span>xs<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span>dict<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>  <span class="ansi-green-fg">return</span> <span class="ansi-blue-fg">{</span>k<span class="ansi-blue-fg">:</span> to_concat<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span>x<span class="ansi-blue-fg">[</span>k<span class="ansi-blue-fg">]</span> <span class="ansi-green-fg">for</span> x <span class="ansi-green-fg">in</span> xs<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> dim<span class="ansi-blue-fg">=</span>dim<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">for</span> k <span class="ansi-green-fg">in</span> xs<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>keys<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">}</span>
+<span class="ansi-green-intense-fg ansi-bold">    215</span>     <span class="ansi-red-fg">#We may receives xs that are not concatenatable (inputs of a text classifier for instance),</span>
+
+<span class="ansi-red-fg">IndexError</span>: list index out of range</pre>
 </div>
 </div>
 
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Webcam">Webcam<a class="anchor-link" href="#Webcam">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Needs another extension: <a href="https://ipywebrtc.readthedocs.io/en/latest/">https://ipywebrtc.readthedocs.io/en/latest/</a></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">ipywebrtc</span> <span class="kn">import</span> <span class="n">CameraStream</span><span class="p">,</span> <span class="n">ImageRecorder</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">camera</span> <span class="o">=</span> <span class="n">CameraStream</span><span class="p">(</span><span class="n">constraints</span><span class="o">=</span>
-                      <span class="p">{</span><span class="s1">&#39;facing_mode&#39;</span><span class="p">:</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span>
-                       <span class="s1">&#39;audio&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-                       <span class="s1">&#39;video&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mi">640</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="mi">480</span> <span class="p">}</span>
-                       <span class="p">})</span>
-<span class="n">display</span><span class="p">(</span><span class="n">camera</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-
- 
- 
-<div id="bf85f023-fcfa-433b-8592-2fc7f3199823"></div>
-<div class="output_subarea output_widget_view ">
-<script type="text/javascript">
-var element = $('#bf85f023-fcfa-433b-8592-2fc7f3199823');
-</script>
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_minor": 0, "version_major": 2, "model_id": "d3c8dd66acdc487d84c4cf0312fdbef5"}
-</script>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Seems to only work when the code is present when the page is loaded. It then asks for permission to use the camera.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Taking-an-image">Taking an image<a class="anchor-link" href="#Taking-an-image">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Manually">Manually<a class="anchor-link" href="#Manually">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">image_recorder</span> <span class="o">=</span> <span class="n">ImageRecorder</span><span class="p">(</span><span class="n">stream</span><span class="o">=</span><span class="n">camera</span><span class="p">)</span>
-<span class="n">image_recorder</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Programatically">Programatically<a class="anchor-link" href="#Programatically">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">image_recorder</span><span class="o">.</span><span class="n">recording</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">image_recorder</span><span class="o">.</span><span class="n">autosave</span> <span class="o">=</span> <span class="kc">False</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">PIL.Image</span>
-<span class="kn">import</span> <span class="nn">io</span>
-<span class="n">im</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">image_recorder</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">im</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;stream_save_test.png&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Voila">Voila<a class="anchor-link" href="#Voila">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>pip install voila</li>
-<li>jupyter serverextension enable voila --sys-prefix</li>
-</ul>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
