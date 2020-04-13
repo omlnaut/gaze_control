@@ -13080,6 +13080,12 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">ipywebrtc</span> <span class="kn">import</span> <span class="n">CameraStream</span><span class="p">,</span> <span class="n">ImageRecorder</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">VBox</span>
+
+<span class="kn">import</span> <span class="nn">PIL.Image</span>
+<span class="kn">import</span> <span class="nn">PIL.ImageFilter</span>
+<span class="kn">import</span> <span class="nn">io</span>
 </pre></div>
 
     </div>
@@ -13112,7 +13118,46 @@ div#notebook {
                        <span class="s1">&#39;audio&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
                        <span class="s1">&#39;video&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mi">640</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="mi">480</span> <span class="p">}</span>
                        <span class="p">})</span>
-<span class="n">display</span><span class="p">(</span><span class="n">camera</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">image_recorder</span> <span class="o">=</span> <span class="n">ImageRecorder</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;png&#39;</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="n">camera</span><span class="p">)</span>
+<span class="n">image_recorder</span><span class="o">.</span><span class="n">recording</span><span class="o">=</span><span class="kc">True</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[67]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">VBox</span><span class="p">([</span><span class="n">camera</span><span class="p">,</span> <span class="n">image_recorder</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -13133,13 +13178,13 @@ div#notebook {
 
  
  
-<div id="27a5242d-074e-41d7-90ed-707f7cb07866"></div>
+<div id="d3a4c2f4-979a-48e9-9025-5cd2db71069f"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#27a5242d-074e-41d7-90ed-707f7cb07866');
+var element = $('#d3a4c2f4-979a-48e9-9025-5cd2db71069f');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_minor": 0, "version_major": 2, "model_id": "06992b9565c84db984cde01ebe562281"}
+{"version_minor": 0, "version_major": 2, "model_id": "4341a465fcc24fa9aab8a0068a438850"}
 </script>
 </div>
 

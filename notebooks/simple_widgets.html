@@ -13119,7 +13119,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
@@ -13145,13 +13145,13 @@ div#notebook {
 
  
  
-<div id="2f9ce916-018d-4acc-a3da-e11b69646979"></div>
+<div id="0c30513c-6982-4e42-82c2-e630413e2964"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#2f9ce916-018d-4acc-a3da-e11b69646979');
+var element = $('#0c30513c-6982-4e42-82c2-e630413e2964');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "ac0e9240616045ddbc8bf723e075b790", "version_major": 2, "version_minor": 0}
+{"model_id": "", "version_minor": 0, "version_major": 2}
 </script>
 </div>
 
@@ -13177,6 +13177,74 @@ var element = $('#2f9ce916-018d-4acc-a3da-e11b69646979');
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Button-with-callback">Button with callback<a class="anchor-link" href="#Button-with-callback">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">btn</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Click Me!&quot;</span><span class="p">)</span>
+<span class="c1">#output = widgets.Output()</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">btn</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Testi&quot;</span><span class="p">)</span>
+    
+<span class="n">btn</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+
+ 
+ 
+<div id="9ef85eb2-6b1e-4228-a69e-b93032743c31"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#9ef85eb2-6b1e-4228-a69e-b93032743c31');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "d2abcd5e6f4c43bf9c8f0bdc3702c299", "version_minor": 0, "version_major": 2}
+</script>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Testi
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Webcam">Webcam<a class="anchor-link" href="#Webcam">&#182;</a></h1>
 </div>
 </div>
@@ -13191,7 +13259,7 @@ var element = $('#2f9ce916-018d-4acc-a3da-e11b69646979');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">ipywebrtc</span> <span class="kn">import</span> <span class="n">CameraStream</span><span class="p">,</span> <span class="n">ImageRecorder</span>
@@ -13233,13 +13301,13 @@ var element = $('#2f9ce916-018d-4acc-a3da-e11b69646979');
 
  
  
-<div id="1f6731b5-50c4-4916-803a-e8bc2a8737c6"></div>
+<div id="ab913b07-d896-40cb-b3f4-8ebe47ea562a"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#1f6731b5-50c4-4916-803a-e8bc2a8737c6');
+var element = $('#ab913b07-d896-40cb-b3f4-8ebe47ea562a');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "dfa0728b05a54abfb478e0913121c17a", "version_major": 2, "version_minor": 0}
+{"model_id": "d3c8dd66acdc487d84c4cf0312fdbef5", "version_minor": 0, "version_major": 2}
 </script>
 </div>
 
@@ -13273,7 +13341,7 @@ var element = $('#1f6731b5-50c4-4916-803a-e8bc2a8737c6');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">image_recorder</span> <span class="o">=</span> <span class="n">ImageRecorder</span><span class="p">(</span><span class="n">stream</span><span class="o">=</span><span class="n">camera</span><span class="p">)</span>
@@ -13281,35 +13349,6 @@ var element = $('#1f6731b5-50c4-4916-803a-e8bc2a8737c6');
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-
- 
- 
-<div id="8c5816e6-850a-4a6c-940e-71b485bd1b97"></div>
-<div class="output_subarea output_widget_view ">
-<script type="text/javascript">
-var element = $('#8c5816e6-850a-4a6c-940e-71b485bd1b97');
-</script>
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "a15d5e0474064130b0f5ec0c794442a8", "version_major": 2, "version_minor": 0}
-</script>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -13323,7 +13362,7 @@ var element = $('#8c5816e6-850a-4a6c-940e-71b485bd1b97');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">image_recorder</span><span class="o">.</span><span class="n">recording</span> <span class="o">=</span> <span class="kc">True</span>
@@ -13337,7 +13376,7 @@ var element = $('#8c5816e6-850a-4a6c-940e-71b485bd1b97');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">PIL.Image</span>
@@ -13352,7 +13391,7 @@ var element = $('#8c5816e6-850a-4a6c-940e-71b485bd1b97');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">im</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;stream_save_test.png&#39;</span><span class="p">)</span>
