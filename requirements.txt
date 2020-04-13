@@ -1,2 +1,3 @@
 voila
 ipywebrtc
+PIL
