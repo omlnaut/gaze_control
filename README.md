@@ -4,6 +4,9 @@ The overall goal of this repository is to experiment with user interaction by ga
 
 # Current step
     - Experiment with local model
+        - streamline exporting in linux and import in windows
+            - num_workers=0 when exporting
+            - PosixPath=WindowsPath when importing
     - make prediction better
     
 
