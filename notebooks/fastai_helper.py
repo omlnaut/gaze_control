@@ -12,7 +12,5 @@ def load_posix_learner(model_path):
 
 def save_learner(learner, datablock, source, save_path, **kwargs):
 	dls = datablock.dataloaders(source, num_worker=0, **kwargs)
-	dls_save = learner.dls.copy()
 	learner.dls = dls
 	learner.export(save_path)
-	learner.dls = dls_save
