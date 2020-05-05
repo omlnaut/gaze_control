@@ -1,3 +1,4 @@
+fastai2
 voila
 ipywebrtc
 PIL
